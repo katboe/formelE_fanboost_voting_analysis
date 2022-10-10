@@ -12,18 +12,24 @@ Extracting tweets by hashtags via the Twitter API is very costly. Hence, instead
     
     ```src/data_extraction/extract_follower_ids.py ../../config/config.json```
 
-2. For each follower: Extract tweet archive (contains last 2500 tweets): 
+2. For each follower: Extract tweet archive (contains last 2500 tweets)
 
    This process is designed to be exectued multiple times in parallel in order to speed up the process if multiple twitter access keys are available.
    
     ```src/data_extraction/extract_follower_tweets.py ../../config/config.json {process_id}```
 
-3. For each follower: Extract user information: 
+3. For each follower: Extract user information
     
    ```src/data_extraction/extract_user_information.py ../../config/config.json```
    
  
-
 ## Data Preparation
+1. Prepare user information: Determine country of user location, if available. 
+  Since user information is entered manually in a free text field, the information is not too reliable though.
+
+2. Construct voting network as networkx multi-graph and save as .graphml for analysis: 
+  If a tweet was created within 10 days prior to a race, an edge is added from the user-node to the driver-node. Hence, the network contains two types of nodes: twitter-user and driver nodes. Nodes contain attributes such as twitter user ids, screen names and user locations/country. 
 
 ## Data Analysis
+
+Load graphs into software 'visone' for visualisation, clustering, etc. 
