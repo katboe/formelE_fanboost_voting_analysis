@@ -1,0 +1,11 @@
+{
+	"data_dir": "data",
+	"src_dir": "src",
+	"results_dir": "results",
+	"tweets_dir": "data/tweets",
+	"follower_fname": "data/followers.txt",
+
+
+	"total_num_process":4
+}
+
