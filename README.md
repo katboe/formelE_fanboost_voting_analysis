@@ -32,7 +32,7 @@ Extracting tweets by hashtags via the Twitter API is very costly. Hence, instead
 
 ## Data Analysis
 General Network Analysis of Voting networks:
-Indegree and Outdegree Analysis is performed on race voting networks and the driver voting networks, i.e. how drivers vote for each other. For this, the voting graphs are loaded into the graph software 'visone' for visualisation, degree analysis, clustering, etc. 
+Indegree and Outdegree Analysis is performed on race voting networks and the driver voting networks, i.e. how drivers vote for each other. For this, the voting graphs are loaded into the graph software ['visone'](https://visone.ethz.ch/) for visualisation, degree analysis, clustering, etc. 
 
 Various influences on Twitter's fanboost voting are analysed by computing correlations between fanboost rankings and other measurements:
 
