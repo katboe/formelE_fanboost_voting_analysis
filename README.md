@@ -1,7 +1,7 @@
 # Twitter Analysis of FormelE's Fanboost Voting
 In Formel-E fans can vote for their favorite driver via Twitter and the official Fanboost website in order to enable a special boost during the race called fanboost. The boost can be of help in overtaking maneuvers. The voting is enabled for 10 days prior to a race and the player with the most votes gets the fanboost.
 
-In this project I analyse the Twitter fanboost votings of Formel-E races in 2018/19. I first extract voting tweets from Twitter using tweep, construct voting networks and analyse the networks using the network analysis tool 'visone'. The presentation with the results of the analysis can be viewed [here](https://docs.google.com/presentation/d/1ksmdE7dl4Mv9BDmoSJu1oAuynRfQDtjF8wc_d01hYMo/edit?usp=sharing).
+In this project, I analyse the Twitter fanboost votings of Formel-E races in 2018/19. I first extract voting tweets from Twitter using tweepy, construct voting networks and analyse the networks using the network analysis tool 'visone'. The presentation with the results of the analysis can be viewed [here](https://docs.google.com/presentation/d/1ksmdE7dl4Mv9BDmoSJu1oAuynRfQDtjF8wc_d01hYMo/edit?usp=sharing).
 
 ## Data Extraction
 Tweets count as fanboost vote if they are created within 10 days before a race and contain the hashtag "#fanboost" together with the driver's twitter screenname as hashtag or user mention. 
@@ -32,7 +32,7 @@ Extracting tweets by hashtags via the Twitter API is very costly. Hence, instead
 
 ## Data Analysis
 General Network Analysis of Voting networks:
-Indegree and Outdegree Analysis is performed on race voting networks and the driver voting networks, i.e. how drivers vote for each other. For this, the voting graphs are loaded into the graph software 'visone' for visualisation, degree analysis, clustering, etc. 
+Indegree and Outdegree Analysis is performed on race voting networks and the driver voting networks, i.e. how drivers vote for each other. For this, the voting graphs are loaded into the graph software ['visone'](https://visone.ethz.ch/) for visualisation, degree analysis, clustering, etc. 
 
 Various influences on Twitter's fanboost voting are analysed by computing correlations between fanboost rankings and other measurements:
 
