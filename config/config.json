@@ -5,7 +5,8 @@
 	"tweets_dir": "data/tweets",
 	"follower_fname": "data/followers.txt",
 
-
-	"total_num_process":4
+	"total_num_process":4,
+	"page_size": 5000
+	
 }
 

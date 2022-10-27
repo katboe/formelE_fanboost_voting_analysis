@@ -48,8 +48,8 @@ def extract_followers(config_path):
     with open(filepath, 'r') as f:
         keys = yaml.safe_load(f)
 
-    auth = tweepy.OAuthHandler(config['consumer_key'], config['consumer_secret'])  
-    auth.set_access_token(config['access_token'], config['access_token_secret'])  
+    auth = tweepy.OAuthHandler(keys['consumer_key'], keys['consumer_secret'])  
+    auth.set_access_token(keys['access_token'], keys['access_token_secret'])  
 
     api = tweepy.API(auth, wait_on_rate_limit=True)
 
@@ -59,14 +59,12 @@ def extract_followers(config_path):
     #get ser stats for progress bar
     user = api.get_user(screen_name=SCREEN_NAME)
     num_followers = user.followers_count
-    num_followers = 15000
-    page_size = 5000
-    num_pages = math.ceil(num_followers / page_size)
+    num_pages = math.ceil(num_followers / config['page_size'])
 
     #extract follower ids (waits when Twitter API rate limit is reached)
     followers_list = [] 
     with tqdm(total=num_pages) as progress_bar:
-        for page in tweepy.Cursor(api.get_follower_ids, screen_name= SCREEN_NAME, count=page_size).pages(3):
+        for page in tweepy.Cursor(api.get_follower_ids, screen_name= SCREEN_NAME, count= config['page_size']).pages():
             followers_list += page
             progress_bar.update(1) 
         

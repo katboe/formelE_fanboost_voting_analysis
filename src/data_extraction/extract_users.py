@@ -54,27 +54,27 @@ def extract_user_information(config_path):
     #----------------------------------------------------------------
 
     #load list of users to be extracted
-	followers_list = []
-	for line in open(os.path.join(MAIN_DIR, config["follower_fname"])):
-	    if line.strip():           # line contains eol character(s)
-	        n = int(line)
-	        followers_list.append(n)
+    followers_list = []
+    for line in open(os.path.join(MAIN_DIR, config["follower_fname"])):
+        if line.strip():           # line contains eol character(s)
+            n = int(line)
+            followers_list.append(n)
 
-	#get user information for each user in list
-	with tqdm(total=len(followers_list)) as progress_bar:
-		for userID in followers_list:
-		    try :
-		        print("Number {} with userID {}".format(i, userID))
-		        user = api.get_user(userID)
-		        all_users.append(user._json)
-		        
-		    except tweepy.error.TweepError:
-		    	#e.g. when user doesn't exist anymore
-		        print('\nCaught TweepError exception' )
+    #get user information for each user in list
+    with tqdm(total=len(followers_list)) as progress_bar:
+        for userID in followers_list:
+            try :
+                print("Number {} with userID {}".format(i, userID))
+                user = api.get_user(userID)
+                all_users.append(user._json)
+                
+            except tweepy.error.TweepError:
+                #e.g. when user doesn't exist anymore
+                print('\nCaught TweepError exception' )
 
-	all_user_json = {}
-	for user in all_users:
-	    all_user_json[user["id"]] = user
+    all_user_json = {}
+    for user in all_users:
+        all_user_json[user["id"]] = user
 
     #save extracted user information
     with open(os.path.join(MAIN_DIR + config['data_dir'], USER_FNAME), 'w') as f:
